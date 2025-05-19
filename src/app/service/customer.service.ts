@@ -8,9 +8,17 @@ import { Observable } from 'rxjs';
 })
 export class CustomerService {
 
+  backEndHost:string="http://localhost:8085" 
   constructor(private http:HttpClient) { }
 
   public getCustomers():Observable<Array<Customer>>{
-    return this.http.get<Array<Customer>>("http://localhost:8085/customers")
+    return this.http.get<Array<Customer>>(this.backEndHost+"/customers")
   }
+
+  public searchCustomers(keyword:string):Observable<Array<Customer>>{
+    return this.http.get<Array<Customer>>(this.backEndHost+"/customers/search?keyword?"+keyword)
+  }
+
 }
+
+

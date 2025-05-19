@@ -8,6 +8,7 @@ import { AccountsComponent } from './accounts/accounts.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
+import { CommonModule } from '@angular/common';
 
 
 
@@ -22,7 +23,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [
     provideClientHydration()

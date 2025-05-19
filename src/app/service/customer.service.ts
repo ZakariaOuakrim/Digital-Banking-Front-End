@@ -1,9 +1,16 @@
+import { Customer } from './../model/customer.model';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
+
+  public getCustomers():Observable<Array<Customer>>{
+    return this.http.get<Array<Customer>>("http://localhost:8085/customers")
+  }
 }

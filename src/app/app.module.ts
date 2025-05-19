@@ -7,7 +7,7 @@ import { CustomersComponent } from './customers/customers.component';
 import { AccountsComponent } from './accounts/accounts.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {HttpClientModule} from "@angular/common/http";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule,ReactiveFormsModule} from "@angular/forms";
 import { CommonModule } from '@angular/common';
 import { NewCustomerComponent } from './new-customer/new-customer.component';
 
@@ -26,7 +26,9 @@ import { NewCustomerComponent } from './new-customer/new-customer.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    FormsModule
+    
   ],
   providers: [
     provideClientHydration()

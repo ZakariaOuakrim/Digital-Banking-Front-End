@@ -1,6 +1,9 @@
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from '../service/customer.service';
+import { Router } from '@angular/router';
+import { Customer } from '../model/customer.model';
 
 @Component({
   selector: 'app-new-customer',
@@ -8,20 +11,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './new-customer.component.css'
 })
 export class NewCustomerComponent implements OnInit {
-  newCustomerFromGroup!:FormGroup
-  constructor(private fb:FormBuilder){
-
-  }
+  newCustomerFormGroup! : FormGroup;
+  constructor(private fb : FormBuilder, private customerService:CustomerService, private router:Router) { }
 
   ngOnInit(): void {
-    this.newCustomerFromGroup = this.fb.group({
-      name:this.fb.control(null),
-      email:this.fb.control(null)
-    })
-  }
-  handleSaveCustomer(){
-    
+    this.newCustomerFormGroup=this.fb.group({
+      name : this.fb.control(null, [Validators.required, Validators.minLength(4)]),
+      email : this.fb.control(null,[Validators.required, Validators.email])
+    });
   }
 
+  handleSaveCustomer() {
+    let customer:Customer=this.newCustomerFormGroup.value;
+    this.customerService.saveCustomer(customer).subscribe({
+      next : data=>{
+        alert("Customer has been successfully saved!");
+        //this.newCustomerFormGroup.reset();
+        this.router.navigateByUrl("/customers");
+      },
+      error : err => {
+        console.log(err);
+      }
+    });
+  }
 
 }

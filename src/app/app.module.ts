@@ -10,6 +10,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule,ReactiveFormsModule} from "@angular/forms";
 import { CommonModule } from '@angular/common';
 import { NewCustomerComponent } from './new-customer/new-customer.component';
+import { provideHttpClient, withFetch } from '@angular/common/http'; // <-- Updated import
 
 
 
@@ -31,7 +32,8 @@ import { NewCustomerComponent } from './new-customer/new-customer.component';
     
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(withFetch()),
   ],
   bootstrap: [AppComponent]
 })

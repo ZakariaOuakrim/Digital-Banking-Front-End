@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import { CommonModule } from '@angular/common';
+import { NewCustomerComponent } from './new-customer/new-customer.component';
 
 
 
@@ -17,7 +18,8 @@ import { CommonModule } from '@angular/common';
     AppComponent,
     CustomersComponent,
     AccountsComponent,
-    NavbarComponent
+    NavbarComponent,
+    NewCustomerComponent
   ],
   imports: [
     BrowserModule,

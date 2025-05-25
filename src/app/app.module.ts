@@ -10,7 +10,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule,ReactiveFormsModule} from "@angular/forms";
 import { CommonModule } from '@angular/common';
 import { NewCustomerComponent } from './new-customer/new-customer.component';
-import { provideHttpClient, withFetch } from '@angular/common/http'; // <-- Updated import
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { CustomerAccountsComponent } from './customer-accounts/customer-accounts.component'; // <-- Updated import
 
 
 
@@ -20,7 +21,8 @@ import { provideHttpClient, withFetch } from '@angular/common/http'; // <-- Upda
     CustomersComponent,
     AccountsComponent,
     NavbarComponent,
-    NewCustomerComponent
+    NewCustomerComponent,
+    CustomerAccountsComponent
   ],
   imports: [
     BrowserModule,

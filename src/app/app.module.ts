@@ -11,7 +11,8 @@ import {FormsModule,ReactiveFormsModule} from "@angular/forms";
 import { CommonModule } from '@angular/common';
 import { NewCustomerComponent } from './new-customer/new-customer.component';
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { CustomerAccountsComponent } from './customer-accounts/customer-accounts.component'; // <-- Updated import
+import { CustomerAccountsComponent } from './customer-accounts/customer-accounts.component';
+import { LoginComponent } from './login/login.component'; // <-- Updated import
 
 
 
@@ -22,7 +23,8 @@ import { CustomerAccountsComponent } from './customer-accounts/customer-accounts
     AccountsComponent,
     NavbarComponent,
     NewCustomerComponent,
-    CustomerAccountsComponent
+    CustomerAccountsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

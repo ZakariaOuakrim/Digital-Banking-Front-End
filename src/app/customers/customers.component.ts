@@ -1,22 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 import {CustomerService} from "../service/customer.service";
 import {catchError, map, Observable, throwError} from "rxjs";
 import {Customer} from "../model/customer.model";
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.css']
 })
-
 export class CustomersComponent implements OnInit {
   customers! : Observable<Array<Customer>>;
   errorMessage!: string;
   searchFormGroup : FormGroup | undefined;
-  constructor(private customerService : CustomerService, private fb : FormBuilder) { 
-    
-  }
+  constructor(private customerService : CustomerService, private fb : FormBuilder, private router : Router) { }
 
   ngOnInit(): void {
     this.searchFormGroup=this.fb.group({
@@ -33,6 +32,7 @@ export class CustomersComponent implements OnInit {
       })
     );
   }
+
   handleDeleteCustomer(c: Customer) {
     let conf = confirm("Are you sure?");
     if(!conf) return;
@@ -51,5 +51,8 @@ export class CustomersComponent implements OnInit {
       }
     })
   }
-  
+
+  handleCustomerAccounts(customer: Customer) {
+    this.router.navigateByUrl("/customer-accounts/"+customer.id,{state :customer});
+  }
 }

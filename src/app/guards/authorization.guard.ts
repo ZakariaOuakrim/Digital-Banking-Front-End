@@ -5,18 +5,17 @@ import { AuthService } from '../service/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthentificationGuard{
+export class AuthorizationGuard{
   constructor(private authService:AuthService,private router:Router) { }
 
   canActivate(): boolean {
     // Check if the user is authenticated
-    if (this.authService.isAuthenticated== true) {
+    if (this.authService.roles.includes("ADMIN")) {
       // User is authenticated, allow access
       return true;
     } else {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/admin/not-authorized']);
       return false;
     }
   }
 }
-

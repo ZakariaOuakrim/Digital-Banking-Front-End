@@ -15,6 +15,7 @@ import { CustomerAccountsComponent } from './customer-accounts/customer-accounts
 import { LoginComponent } from './login/login.component';
 import { AdminTemplateComponent } from './admin-template/admin-template.component'; // <-- Updated import
 import { AppHttpInterceptor } from './interceptors/app-http.interceptor';
+import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
 
 
 
@@ -28,6 +29,7 @@ import { AppHttpInterceptor } from './interceptors/app-http.interceptor';
     CustomerAccountsComponent,
     LoginComponent,
     AdminTemplateComponent,
+    NotAuthorizedComponent,
   ],
   imports: [
     BrowserModule,
